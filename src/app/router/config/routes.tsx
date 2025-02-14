@@ -1,5 +1,5 @@
-import MainPage from "@pages/main-page"
-import NotFoundPage from "@pages/not-found-page"
+import MainPage from '@pages/main-page'
+import NotFoundPage from '@pages/not-found-page'
 
 const routes = [
     {

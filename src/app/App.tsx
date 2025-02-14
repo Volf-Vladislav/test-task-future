@@ -1,10 +1,13 @@
+import { ReduxProvider } from './providers'
+
 import Router from './router'
 
-import './style/index.scss'
+import './styles/index.scss'
 
 const App = () => {
   return (
-    <Router/>
+    <ReduxProvider><Router /></ReduxProvider>
+
   )
 }
 

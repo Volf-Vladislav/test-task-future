@@ -1,0 +1,36 @@
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+        max-width: 210px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
+
+p {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+a {
+    display: block;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+.loader {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

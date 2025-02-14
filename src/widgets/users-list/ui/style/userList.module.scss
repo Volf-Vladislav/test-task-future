@@ -1,0 +1,61 @@
+$scrollbarColor: #505050;
+
+.userList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 40px;
+}
+
+.listTitle {
+    padding-left: 14px;
+    font-size: 18px;
+
+    span {
+        color: red;
+    }
+}
+
+.imageBlock {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+    }
+
+    p {
+        font-size: 18px;
+    }
+}
+
+.scrollableContent {
+    height: 400px;
+    padding: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $scrollbarColor; 
+        border-radius: 12px; 
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbarColor transparent;
+}

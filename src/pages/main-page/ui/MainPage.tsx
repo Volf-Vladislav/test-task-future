@@ -1,7 +1,5 @@
-const MainPage = () => {
-  return (
-    <div>MainPage</div>
-  )
-}
+import UsersList from '@widgets/users-list'
+
+const MainPage = () => <UsersList />
 
 export default MainPage
