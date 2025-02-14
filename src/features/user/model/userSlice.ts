@@ -8,11 +8,13 @@ export type UserSlice = {
   users: User[]
   totalUsers?: number | undefined | null
   page: number
+  isLoading?: boolean
 }
 
 const initialState: UserSlice = {
   users: [],
-  page: 1
+  page: 1,
+  isLoading: false
 }
 
 export const userSlice = createSlice({
@@ -26,13 +28,17 @@ export const userSlice = createSlice({
     clearUsers: (state) => {
       state.users = []
       state.totalUsers = null
+      state.page = 1
     },
     nextPage: (state) => {
       state.page = state.page + 1
+    },
+    switchLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload
     }
   },
 })
 
-export const { setUsers, clearUsers, nextPage } = userSlice.actions
+export const { setUsers, clearUsers, nextPage, switchLoading } = userSlice.actions
 
 export default userSlice.reducer

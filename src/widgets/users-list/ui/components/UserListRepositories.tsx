@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from "react"
+import { useEffect, useState } from "react"
 
 import RepositoriesLoader from "./RepositoriesLoader"
 
@@ -6,23 +6,23 @@ import { getRepositories, Repository } from "@entities/repository"
 
 import styles from '../style/userRepository.module.scss'
 
-const UserListRepositories = memo(({ login }: { login: string }) => {
+const UserListRepositories = ({ login }: { login: string }) => {
     const [repositories, setRepositories] = useState<Repository[]>([])
     const [hasError, setHasError] = useState(false)
     const [errorMessage, setErrorMessage] = useState<string>('')
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         if (login) {
-            setIsLoaded(false)
+            setIsLoading(true)
             getRepositories(login)
                 .then(response => {
-                    setIsLoaded(true)
+                    setIsLoading(false)
                     setRepositories(response)
                 })
                 .catch((error) => {
                     if (!hasError) {
-                        setIsLoaded(true)
+                        setIsLoading(false)
                         setHasError(true)
                         setErrorMessage(error.response?.data?.message)
                     }
@@ -30,7 +30,7 @@ const UserListRepositories = memo(({ login }: { login: string }) => {
         }
     }, [login])
 
-    if (!isLoaded) <RepositoriesLoader />
+    if (isLoading) <RepositoriesLoader />
     else if (hasError) return (<p className={styles.error}>Ошибка загрузки репозиториев, {errorMessage}</p>)
     else return (
         <div>
@@ -49,6 +49,6 @@ const UserListRepositories = memo(({ login }: { login: string }) => {
             ))}
         </div>
     )
-})
+}
 
 export default UserListRepositories

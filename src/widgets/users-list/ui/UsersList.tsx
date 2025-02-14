@@ -3,6 +3,7 @@ import { useRef, useCallback, useEffect } from 'react'
 
 import UserListTitle from './components/UserListTitle'
 import UserListRepositories from './components/UserListRepositories'
+import UsersLoading from './components/UsersLoading'
 
 import { nextPage, RootState } from '@features/user'
 
@@ -11,7 +12,7 @@ import Card from '@shared/ui/card'
 import styles from './style/userList.module.scss'
 
 const UsersList = () => {
-    const { users, totalUsers } = useSelector((state: RootState) => state.users)
+    const { users, totalUsers, isLoading } = useSelector((state: RootState) => state.users)
     const dispatch = useDispatch()
     const observerRef = useRef<IntersectionObserver | null>(null)
 
@@ -33,7 +34,8 @@ const UsersList = () => {
         }
       }, [])
 
-    return (
+    if(isLoading && users.length === 0) return <UsersLoading/>
+    else return (
         <div>
             <UserListTitle count={totalUsers} />
             <div className={styles.userList}>
