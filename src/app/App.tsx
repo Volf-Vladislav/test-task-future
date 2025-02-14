@@ -1,8 +1,10 @@
-import './styles/index.scss'
+import Router from './router'
+
+import './style/index.scss'
 
 const App = () => {
   return (
-    <div>App</div>
+    <Router/>
   )
 }
 
