@@ -6,4 +6,8 @@
     margin-bottom: 40px;
 }
 
-@import url(./mobile/mobile.scss);
+@media (max-width: 800px) {
+    .container {
+        padding: 0px
+    }
+}

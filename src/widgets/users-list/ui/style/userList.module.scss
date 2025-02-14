@@ -59,3 +59,15 @@ $scrollbarColor: #505050;
     scrollbar-width: thin;
     scrollbar-color: $scrollbarColor transparent;
 }
+
+@media (max-width: 800px) {
+    .listTitle {
+        padding: 0px;
+        text-align: center;
+    }
+
+    .userList {
+        flex-direction: column;
+        align-items: center;
+    }
+}
