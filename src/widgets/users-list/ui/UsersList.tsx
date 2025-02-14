@@ -1,15 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useRef, useCallback, useEffect } from 'react'
 
-import UserListTitle from './components/UserListTitle'
-import UserListRepositories from './components/UserListRepositories'
 import UsersLoading from './components/UsersLoading'
 
 import { nextPage, RootState } from '@features/user'
 
-import Card from '@shared/ui/card'
-
-import styles from './style/userList.module.scss'
+import UserListGrid from './components/chunks/UserListGrid'
 
 const UsersList = () => {
     const { users, totalUsers, isLoading } = useSelector((state: RootState) => state.users)
@@ -30,29 +26,16 @@ const UsersList = () => {
 
     useEffect(() => {
         return () => {
-          observerRef.current?.disconnect()
+            observerRef.current?.disconnect()
         }
-      }, [])
+    }, [])
 
-    if(isLoading && users.length === 0) return <UsersLoading/>
+    if (isLoading && users.length === 0) return <UsersLoading />
     else return (
-        <div>
-            <UserListTitle count={totalUsers} />
-            <div className={styles.userList}>
-                {users.map(user => (
-                    <Card key={user.id} width="300px" height="400px">
-                        <div className={styles.scrollableContent}>
-                            <div className={styles.imageBlock}>
-                                <img src={user.avatar_url} alt={user.login}/>
-                                <p>{user.login}</p>
-                            </div>
-                            <UserListRepositories login={user.login} />
-                        </div>
-                    </Card>
-                ))}
-            </div>
+        <>
+            <UserListGrid users={users} totalUsers={totalUsers} />
             <div ref={lastUserCallback} style={{ height: "20px", marginTop: "10px" }}></div>
-        </div>
+        </>
     )
 }
 

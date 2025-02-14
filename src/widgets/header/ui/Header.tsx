@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 
+import HeaderChunk from './components/HeaderChunk'
+
 import { setUsers, clearUsers, RootState, switchLoading } from '@features/user'
 
 import { getUsers } from '@entities/user'
 
-import Input from '@shared/ui/input'
 import useDebounce from '@shared/hooks'
-
-import styles from './style/header.module.scss'
 
 const Header = () => {
     const [username, setUsername] = useState<string>('')
@@ -42,14 +41,7 @@ const Header = () => {
         window.scrollTo(0, 0)
     }, [debouncedusername])
     
-    return (
-        <header className={styles.header}>
-            <div className={styles.search}>
-                <p>Поиск</p>
-                <Input value={username} onChange={(e) => setUsername(e.target.value)} width='220px' />
-            </div>
-        </header>
-    )
+    return <HeaderChunk username={username} setUsername={setUsername}/>
 }
 
 export default Header
