@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import RepositoriesLoader from "./RepositoriesLoader"
-import UserRepositoriesList from "./chunks/UserRepositoriesList"
+import UserRepositoriesList from "./grid/UserRepositoriesList"
 
 import { getRepositories, Repository } from "@entities/repository"
 

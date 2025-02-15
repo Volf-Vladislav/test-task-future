@@ -5,7 +5,7 @@ import UsersLoading from './components/UsersLoading'
 
 import { nextPage, RootState } from '@features/user'
 
-import UserListGrid from './components/chunks/UserListGrid'
+import UserListGrid from './components/grid/UserListGrid'
 
 const UsersList = () => {
     const { users, totalUsers, isLoading } = useSelector((state: RootState) => state.users)

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 
-import HeaderChunk from './components/HeaderChunk'
+import HeaderContent from './components/HeaderContent'
 
 import { setUsers, clearUsers, RootState, switchLoading } from '@features/user'
 
@@ -41,7 +41,7 @@ const Header = () => {
         window.scrollTo(0, 0)
     }, [debouncedusername])
     
-    return <HeaderChunk username={username} setUsername={setUsername}/>
+    return <HeaderContent username={username} setUsername={setUsername}/>
 }
 
 export default Header

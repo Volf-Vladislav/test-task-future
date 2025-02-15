@@ -1,10 +1,10 @@
-import HeaderChunkProps from "@widgets/header/model/HeaderChunkProps"
+import HeaderContentProps from "@widgets/header/model/HeaderContentProps"
 
 import Input from "@shared/ui/input"
 
 import styles from '../style/header.module.scss'
 
-const HeaderChunk = ({ username, setUsername }: HeaderChunkProps) => {
+const HeaderContent = ({ username, setUsername }: HeaderContentProps) => {
     return (
         <header className={styles.header}>
         <div className={styles.search}>
@@ -15,4 +15,4 @@ const HeaderChunk = ({ username, setUsername }: HeaderChunkProps) => {
     )
 }
 
-export default HeaderChunk
+export default HeaderContent
