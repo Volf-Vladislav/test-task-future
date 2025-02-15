@@ -32,7 +32,7 @@ const UserListRepositories = ({ login }: { login: string }) => {
         }
     }, [login])
 
-    if (isLoading) <RepositoriesLoader />
+    if (isLoading) return <RepositoriesLoader />
     else if (hasError) return (<p className={styles.error}>Ошибка загрузки репозиториев, {errorMessage}</p>)
     else return <UserRepositoriesList repositories={repositories}/>
 }

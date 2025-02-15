@@ -14,5 +14,5 @@ const HeaderContent = ({ username, setUsername }: HeaderContentProps) => {
         </header>
     )
 }
-
+ 
 export default HeaderContent
